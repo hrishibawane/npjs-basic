@@ -1,4 +1,4 @@
-# npjs
+# npjs-basic
 
 A numpy-like package for mathematical array functions and manipulations
 
@@ -8,7 +8,7 @@ npjs is a lightweight JavaScript library providing a subset of Python's numpy pa
 
 ## Usage
 
-```const np = require('npjs');```
+```const np = require('npjs-basic');```
 
 Currently all functions are supported for 1-D arrays except ```flatten()```. Supported functions:
 
