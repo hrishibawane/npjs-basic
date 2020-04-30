@@ -30,4 +30,4 @@ Currently all functions are supported for 1-D arrays except ```flatten()```. Sup
 
 ## Contribution
 
-Happy to take or provide contributions related to this package. [Github Link]("https://github.com/hrishibawane/npjs")
+Happy to take or provide contributions related to this package. [Github Link](https://github.com/hrishibawane/npjs)
