@@ -1,0 +1,16 @@
+{
+  "name": "npjs-basic",
+  "version": "1.0.0",
+  "description": "Numpy for npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "npjs",
+    "numpy"
+  ],
+  "author": "Hrishikesh Bawane",
+  "license": "MIT"
+}
