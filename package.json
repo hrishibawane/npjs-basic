@@ -4,7 +4,7 @@
   "description": "Numpy for npm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "npm",
@@ -12,5 +12,8 @@
     "numpy"
   ],
   "author": "Hrishikesh Bawane",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^7.1.2"
+  }
 }
