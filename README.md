@@ -10,7 +10,9 @@ npjs is a lightweight JavaScript library providing a subset of Python's numpy pa
 
 ```const np = require('npjs-basic');```
 
-Currently all functions are supported for 1-D arrays except ```flatten()```. Supported functions:
+Currently all functions are supported for 1-D arrays except ```flatten()``` and ```shape()```. Supported functions:
+
+- ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
 
 - ```sum(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB.
 
@@ -30,4 +32,4 @@ Currently all functions are supported for 1-D arrays except ```flatten()```. Sup
 
 ## Contribution
 
-Happy to take or provide contributions related to this package. [Github Link](https://github.com/hrishibawane/npjs)
+Happy to take or provide contributions related to this package. Feel free to raise an issue if you find one. [Github Link](https://github.com/hrishibawane/npjs)
