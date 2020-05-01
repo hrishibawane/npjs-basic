@@ -1,4 +1,19 @@
-const sum = (list_A, list_B, callback) => {
+const check = (list) => {
+  let flag = Array.isArray(list[0]);
+  let len = flag ? list[0].length : 0;
+  for (let i = 0; i < list.length; i++) {
+    let tmp_flag = Array.isArray(list[i]);
+    let tmp_len = tmp_flag ? list[i].length : 0;
+    if (flag != tmp_flag || len != tmp_len) {
+      return false;
+    }
+    var ret = check(list[i]);
+    if (!ret) return false;
+  }
+  return true;
+};
+
+const add = (list_A, list_B, callback) => {
   if (list_A.length != list_B.length) {
     return callback(Error("Lengths of arrays must be equal"));
   } else {
@@ -57,15 +72,31 @@ const min_max_normalize = (list, callback) => {
   }
 };
 
-const linspace = (start, end, num=50) => {
-    var step = (end - start) / (num-1);
-    var res = [];
-    for (var i=0; i<num; i++) {
-        res.push(start + step * i);
-    }
-    return res;
-}
+const linspace = (start, end, num = 50) => {
+  var step = (end - start) / (num - 1);
+  var res = [];
+  for (var i = 0; i < num; i++) {
+    res.push(start + step * i);
+  }
+  return res;
+};
 
+const shape = (list, callback) => {
+  var dim_check = check(list);
+  if (!dim_check) {
+    return callback(Error("uneven array dimensions"));
+  }
+  var result = [];
+  for (;;) {
+    result.push(list.length);
+    if (Array.isArray(list[0])) {
+      list = list[0];
+    } else {
+      break;
+    }
+  }
+  return callback(null, result);
+};
 
 const flatten = (list, result = []) => {
   for (let i = 0, len = list.length; i < len; i++) {
@@ -87,4 +118,14 @@ const norm = (list) => {
   return Math.sqrt(res);
 };
 
-module.exports = { sum, subtract, mean, dot, min_max_normalize, linspace, flatten, norm };
+module.exports = {
+  add,
+  subtract,
+  mean,
+  dot,
+  min_max_normalize,
+  linspace,
+  shape,
+  flatten,
+  norm,
+};
