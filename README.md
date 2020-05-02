@@ -4,19 +4,19 @@ A numpy-like package for mathematical array functions and manipulations
 
 ## Introduction
 
-npjs is a lightweight JavaScript library providing a subset of Python's numpy package. This package requires no dependencies. This package also includes some extra functions ("min_max_normalize" as of now).
+npjs is a lightweight JavaScript library providing a subset of Python's numpy package. This package is written in pure Javascript and requires no dependencies. This package also includes some extra functions ("min_max_normalize" as of now).
 
 ## Usage
 
 ```const np = require('npjs-basic');```
 
-Currently all functions are supported for 1-D arrays except ```flatten()``` and ```shape()```. Supported functions:
+Supported functions:
 
 - ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
 
-- ```sum(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB.
+- ```sum(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB of any dimensions.
 
-- ```subtract(listA, listB, callback)``` - returns array of differences of corresponding elements of listA and listB.
+- ```subtract(listA, listB, callback)``` - returns array of differences of corresponding elements of listA and listB of any dimensions.
 
 - ```mean(list)``` - returns mean of list elements.
 
@@ -32,4 +32,4 @@ Currently all functions are supported for 1-D arrays except ```flatten()``` and 
 
 ## Contribution
 
-Happy to take or provide contributions related to this package. Feel free to raise an issue if you find one. [Github Link](https://github.com/hrishibawane/npjs)
+Happy to recieve or provide contributions related to this package. Feel free to raise an issue if you find one. [Github Link](https://github.com/hrishibawane/npjs)

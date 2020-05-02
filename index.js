@@ -13,28 +13,70 @@ const check = (list) => {
   return true;
 };
 
-const add = (list_A, list_B, callback) => {
-  if (list_A.length != list_B.length) {
-    return callback(Error("Lengths of arrays must be equal"));
-  } else {
-    let res = [];
-    for (let i = 0; i < list_A.length; i++) {
+const add_helper = (list_A, list_B, res = []) => {
+  for (let i = 0; i < list_A.length; i++) {
+    if (Array.isArray(list_A[i])) {
+      res.push(add_helper(list_A[i], list_B[i], res[i]));
+    } else {
       res[i] = list_A[i] + list_B[i];
     }
-    return callback(null, res);
   }
+  return res;
+};
+
+const add = (list_A, list_B, callback) => {
+  let listA_shape, listB_shape;
+  shape(list_A, (err, res) => {
+    if (err) return callback(Error(err.message));
+    listA_shape = res;
+  });
+  shape(list_B, (err, res) => {
+    if (err) return callback(Error(err.message));
+    listB_shape = res;
+  });
+  if (
+    !listA_shape ||
+    !listB_shape ||
+    listA_shape.toString() != listB_shape.toString()
+  ) {
+    return callback(Error("Incompatible array shapes"));
+  }
+
+  let res = add_helper(list_A, list_B);
+  return callback(null, res);
+};
+
+const sub_helper = (list_A, list_B, res = []) => {
+  for (let i = 0; i < list_A.length; i++) {
+    if (Array.isArray(list_A[i])) {
+      res.push(sub_helper(list_A[i], list_B[i], res[i]));
+    } else {
+      res[i] = list_A[i] - list_B[i];
+    }
+  }
+  return res;
 };
 
 const subtract = (list_A, list_B, callback) => {
-  if (list_A.length != list_B.length) {
-    return callback(Error("Lengths of arrays must be equal"));
-  } else {
-    let res = [];
-    for (let i = 0; i < list_A.length; i++) {
-      res[i] = list_A[i] - list_B[i];
-    }
-    return callback(null, res);
+  let listA_shape, listB_shape;
+  shape(list_A, (err, res) => {
+    if (err) return callback(Error(err.message));
+    listA_shape = res;
+  });
+  shape(list_B, (err, res) => {
+    if (err) return callback(Error(err.message));
+    listB_shape = res;
+  });
+  if (
+    !listA_shape ||
+    !listB_shape ||
+    listA_shape.toString() != listB_shape.toString()
+  ) {
+    return callback(Error("Incompatible array shapes"));
   }
+
+  let res = sub_helper(list_A, list_B);
+  return callback(null, res);
 };
 
 const mean = (list) => {
@@ -62,7 +104,7 @@ const min_max_normalize = (list, callback) => {
   const max_val = Math.max(...list);
 
   if (min_val == max_val) {
-    return callback(Error("Min-max normalization cannot be applied"));
+    return callback(Error("Array elements are equal"));
   } else {
     let res = [];
     for (let i = 0; i < list.length; i++) {
@@ -84,7 +126,7 @@ const linspace = (start, end, num = 50) => {
 const shape = (list, callback) => {
   var dim_check = check(list);
   if (!dim_check) {
-    return callback(Error("uneven array dimensions"));
+    return callback(Error("Uneven array dimensions"));
   }
   var result = [];
   for (;;) {
