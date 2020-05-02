@@ -12,8 +12,5 @@
     "numpy"
   ],
   "author": "Hrishikesh Bawane",
-  "license": "MIT",
-  "dependencies": {
-    "mocha": "^7.1.2"
-  }
+  "license": "MIT"
 }
