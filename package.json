@@ -12,5 +12,6 @@
     "numpy"
   ],
   "author": "Hrishikesh Bawane",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/hrishibawane/npjs-basic"
 }

@@ -4,9 +4,7 @@ const check = (list) => {
   for (let i = 0; i < list.length; i++) {
     let tmp_flag = Array.isArray(list[i]);
     let tmp_len = tmp_flag ? list[i].length : 0;
-    if (flag != tmp_flag || len != tmp_len) {
-      return false;
-    }
+    if (flag != tmp_flag || len != tmp_len) return false;
     var ret = check(list[i]);
     if (!ret) return false;
   }
@@ -22,6 +20,35 @@ const add_helper = (list_A, list_B, res = []) => {
     }
   }
   return res;
+};
+
+const sub_helper = (list_A, list_B, res = []) => {
+  for (let i = 0; i < list_A.length; i++) {
+    if (Array.isArray(list_A[i])) {
+      res.push(sub_helper(list_A[i], list_B[i], res[i]));
+    } else {
+      res[i] = list_A[i] - list_B[i];
+    }
+  }
+  return res;
+};
+
+const full = (shape, val) => {
+  let res = null;
+  if (shape.length == 1) {
+    res = new Array(shape[0]);
+    for (let i = 0; i < shape[0]; i++) {
+      res[i] = val;
+    }
+    return res;
+  } else {
+    let rest = shape.slice(1);
+    res = new Array(shape[0]);
+    for (let i = 0; i < shape[0]; i++) {
+      res[i] = full(rest, val);
+    }
+    return res;
+  }
 };
 
 const add = (list_A, list_B, callback) => {
@@ -41,20 +68,8 @@ const add = (list_A, list_B, callback) => {
   ) {
     return callback(Error("Incompatible array shapes"));
   }
-
   let res = add_helper(list_A, list_B);
   return callback(null, res);
-};
-
-const sub_helper = (list_A, list_B, res = []) => {
-  for (let i = 0; i < list_A.length; i++) {
-    if (Array.isArray(list_A[i])) {
-      res.push(sub_helper(list_A[i], list_B[i], res[i]));
-    } else {
-      res[i] = list_A[i] - list_B[i];
-    }
-  }
-  return res;
 };
 
 const subtract = (list_A, list_B, callback) => {
@@ -74,12 +89,12 @@ const subtract = (list_A, list_B, callback) => {
   ) {
     return callback(Error("Incompatible array shapes"));
   }
-
   let res = sub_helper(list_A, list_B);
   return callback(null, res);
 };
 
 const mean = (list) => {
+  list = flatten(list);
   let mean = 0;
   for (let i = 0; i < list.length; i++) {
     mean += list[i];
@@ -100,9 +115,9 @@ const dot = (list_A, list_B, callback) => {
 };
 
 const min_max_normalize = (list, callback) => {
+  list = flatten(list);
   const min_val = Math.min(...list);
   const max_val = Math.max(...list);
-
   if (min_val == max_val) {
     return callback(Error("Array elements are equal"));
   } else {
@@ -161,6 +176,7 @@ const norm = (list) => {
 };
 
 module.exports = {
+  full,
   add,
   subtract,
   mean,
