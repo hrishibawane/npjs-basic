@@ -8,9 +8,22 @@ npjs is a lightweight JavaScript library providing a subset of Python's numpy pa
 
 ## Usage
 
-```const np = require('npjs-basic');```
+```
+const np = require('npjs-basic');
 
-Supported functions:
+let arr = [[1, 2, 3], [4, 5, 6]];
+
+np.shape(arr, (err, res) => {
+    if (err) return console.error(err);
+    console.log(res);
+    // or store res in a variable for further use
+});
+
+let flatArr = np.flatten(arr);
+// flatArr = [1, 2, 3, 4, 5, 6]
+```
+
+## Functions
 
 - ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
 
