@@ -1,51 +1,65 @@
 const assert = require("assert");
 const np = require("../index");
 
-let a = [[1, 2, 3, 4]];
-let b = [[1, 2, 3, 4]];
+let a = [
+  [1, 2.678],
+  [3, 4],
+];
+let b = [
+  [1, 2],
+  [3.9865, 4],
+];
 
 describe("Add arrays", () => {
   it("should add array elements", () => {
-    let c = [[2, 4, 6, 8]];
-    let d;
     np.add(a, b, (err, res) => {
-      if (err) {
-        console.log(err.message);
-      } else {
-        d = res;
-      }
+      if (err) console.log(err.message);
+      else console.log(res);
     });
-    assert(c.toString() == d.toString());
   });
 });
 
 describe("Subtract arrays", () => {
   it("should subtract array elements", () => {
-    let c = [[0, 0, 0, 0]];
-    let d;
     np.subtract(a, b, (err, res) => {
-      if (err) {
-        console.log(err.message);
-      } else {
-        d = res;
-      }
+      if (err) console.log(err.message);
+      else console.log(res);
     });
-    assert(c.toString() == d.toString());
   });
 });
 
 describe("Give dimensions", () => {
-    it("should return shape of input array", () => {
-        let p = [[[1,2,3],[1,2,3],[1,2,3]]];
-        let q = [1,3,3];
-        let res_;
-        np.shape(p, (err, res) => {
-            if(err) {
-                console.log(err.message);
-            } else {
-                res_ = res;
-            }
-        });
-        assert(res_.toString() == q.toString());
+  it("should return shape of input array", () => {
+    np.shape(a, (err, res) => {
+      if (err) console.log(err.message);
+      else console.log(res);
     });
+  });
+});
+
+describe("Find mean", () => {
+  it("should find mean of any array", () => {
+    let res = np.mean(a);
+    console.log(res);
+  });
+});
+
+describe("Normalize array", () => {
+  it("should return normalized values", () => {
+    np.min_max_normalize(b, (err, res) => {
+      if (err) console.log(err.message);
+      else console.log(res);
+    });
+  });
+});
+
+describe("Return array of specified size and value", () => {
+  it("should return array", () => {
+    let shape = [2,3,4];
+    let res_ = np.full(shape, 8);
+    np.shape(res_, (err, res) => {
+      if(err) console.log(err.message);
+      else assert(res.toString() == shape.toString());
+    });
+  });
 });

@@ -14,6 +14,8 @@ Supported functions:
 
 - ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
 
+- ```full(shape_array, val)``` - returns array of shape as specified in shape_array with values = val.
+
 - ```sum(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB of any dimensions.
 
 - ```subtract(listA, listB, callback)``` - returns array of differences of corresponding elements of listA and listB of any dimensions.
