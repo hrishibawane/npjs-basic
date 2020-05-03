@@ -8,7 +8,7 @@ npjs is a lightweight JavaScript library providing a subset of Python's numpy pa
 
 ## Usage
 
-```
+```js
 const np = require('npjs-basic');
 
 let arr = [[1, 2, 3], [4, 5, 6]];
@@ -16,7 +16,7 @@ let arr = [[1, 2, 3], [4, 5, 6]];
 np.shape(arr, (err, res) => {
     if (err) return console.error(err);
     console.log(res);
-    // or store res in a variable for further use
+    // res = [2, 3]
 });
 
 let flatArr = np.flatten(arr);
