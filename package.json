@@ -1,6 +1,6 @@
 {
   "name": "npjs-basic",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Numpy for npm",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,8 @@
   ],
   "author": "Hrishikesh Bawane",
   "license": "MIT",
-  "homepage": "https://github.com/hrishibawane/npjs-basic"
+  "homepage": "https://github.com/hrishibawane/npjs-basic",
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  }
 }
