@@ -1,4 +1,5 @@
 # npjs-basic
+[![npm](https://img.shields.io/npm/v/npjs-basic)](https://www.npmjs.com/package/npjs-basic)
 
 A numpy-like package for mathematical array functions and manipulations
 
