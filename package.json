@@ -1,6 +1,6 @@
 {
   "name": "npjs-basic",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Numpy for npm",
   "main": "index.js",
   "scripts": {
