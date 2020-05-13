@@ -175,6 +175,14 @@ const norm = (list) => {
   return Math.sqrt(res);
 };
 
+const arange = (start, stop, step=1) => {
+  var res = [];
+  for (let i=start; i<stop; i+=step) {
+    res.push(i);
+  }
+  return res;
+}
+
 module.exports = {
   full,
   add,
@@ -186,4 +194,5 @@ module.exports = {
   shape,
   flatten,
   norm,
+  arange
 };

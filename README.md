@@ -27,25 +27,27 @@ let flatArr = np.flatten(arr);
 
 ## Functions
 
-- ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
+- ```add(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB of any dimensions.
 
-- ```full(shape_array, val)``` - returns array of shape as specified in shape_array with values = val.
-
-- ```sum(listA, listB, callback)``` - returns array of sums of corresponding elements of listA and listB of any dimensions.
-
-- ```subtract(listA, listB, callback)``` - returns array of differences of corresponding elements of listA and listB of any dimensions.
-
-- ```mean(list)``` - returns mean of list elements.
+- ```arange(start, stop, step)``` - returns evenly spaced values within the half-open interval ```[start, stop)``` with optional step argument.
 
 - ```dot(listA, listB, callbacks)``` - returns dot product of listA and listB.
 
-- ```min_max_normalize(list, callback)``` - returns array after applying Min-Max Normalization on list elements.
+- ```flatten(list)``` - returns 1-D representation of any shape and any levels of nesting of list array.
+
+- ```full(shape_array, val)``` - returns array of shape as specified in shape_array with values = val.
 
 - ```linspace(start, end, num)``` - returns array of numbers in range [start, end] with length = num. Default num=50 unless specified.
 
-- ```flatten(list)``` - returns 1-D representation of any shape and any levels of nesting of list array.
+- ```mean(list)``` - returns mean of list elements.
+
+- ```min_max_normalize(list, callback)``` - returns array after applying Min-Max Normalization on list elements.
 
 - ```norm(list)``` - returns norm as in linear algebra for list elements.
+
+- ```shape(list, callback)``` - returns dimensions of input array if the array is uniform or error otherwise.
+
+- ```subtract(listA, listB, callback)``` - returns array of differences of corresponding elements of listA and listB of any dimensions.
 
 ## Contribution
 

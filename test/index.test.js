@@ -57,9 +57,17 @@ describe("Return array of specified size and value", () => {
   it("should return array", () => {
     let shape = [2,3,4];
     let res_ = np.full(shape, 8);
+    console.log(res_);
     np.shape(res_, (err, res) => {
       if(err) console.log(err.message);
       else assert(res.toString() == shape.toString());
     });
+  });
+});
+
+describe("Return evenly spaced values within given interval", () => {
+  it("should return array", () => {
+    let res = np.arange(2, 20, 6);
+    console.log(res);
   });
 });
