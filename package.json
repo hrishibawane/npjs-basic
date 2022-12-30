@@ -15,6 +15,6 @@
   "license": "MIT",
   "homepage": "https://github.com/hrishibawane/npjs-basic",
   "devDependencies": {
-    "mocha": "^7.1.2"
+    "mocha": "^10.2.0"
   }
 }
